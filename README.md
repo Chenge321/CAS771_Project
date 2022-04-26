@@ -61,6 +61,12 @@ Firstly, you can process dataset and generate different noisy type and level by 
         python test.py --test-dir ../data/CIFAR10/test/ --dataset CIFAR10 --arch resnet18 --resumePthList ./co_teaching_model/cifar10sn0.2_model1 --KList 11 --gpu 0
   
 6. We also provide some trained model,for convenience, you can download them in this Google drive link:
+
+     1. Nested dropout:
+         https://drive.google.com/drive/folders/1mKESCy67mwMUlQSPL1OkASj1xg2WHeNx?usp=sharing
+         
+     2. Co-teaching:
+         https://drive.google.com/drive/folders/11ckiGahY8d4jeTBiH8MgBMRoU_AQsErp?usp=sharing
    
 
 
