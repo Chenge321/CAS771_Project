@@ -88,5 +88,5 @@ Firstly, you can process dataset and generate different noisy type and level by 
 
 3. Chen, Y., Shen, X., Hu, S. X., & Suykens, J. A. (2021). Boosting co-teaching with compression regularization for label noise. In Proceedings of the IEEE/CVF Conference on Computer Vision 
 
-4. The slides from the CAS771 course (by instructor Wenbo He).
+4. Learning_with_noisy_labels, the slides from the CAS771 course (by instructor Wenbo He), https://avenue.cllmcmaster.ca/d2l/le/content/457287/viewContent/3594129/View?ou=457287 
 
