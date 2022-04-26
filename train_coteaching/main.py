@@ -15,9 +15,9 @@ if __name__ ==  '__main__':
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     # data
-    parser.add_argument('--train-dir', type=str, default='../data/Clothing1M/noisy_rand_subtrain/', help='train directory')
-    parser.add_argument('--val-dir', type=str, default='../data/Clothing1M/clean_val/', help='val directory')    
-    parser.add_argument('--dataset', type = str, choices=['CIFAR10', 'CIFAR100', 'Clothing1M'], default='Clothing1M', help='which dataset?')
+    parser.add_argument('--train-dir', type=str, help='train directory')
+    parser.add_argument('--val-dir', type=str, help='val directory')    
+    parser.add_argument('--dataset', type = str, choices=['CIFAR10', 'CIFAR100'], help='which dataset?')
 
     # training
     parser.add_argument('--warmUpIter', type = int, default=6000, help='total iterations for learning rate warm')

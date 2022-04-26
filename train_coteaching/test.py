@@ -34,17 +34,7 @@ def get_dataloader(dataset, test_dir, batchsize) :
             transforms.ToTensor(),
             transforms.Normalize(norm_mean, norm_std)])
         
-    elif dataset == 'Clothing1M':
-        norm_mean, norm_std = (0.485, 0.456, 0.406), (0.229, 0.224, 0.225)
-        nb_cls = 14
-
-        # transformation of the test set
-        transform_test = transforms.Compose([
-                transforms.Resize(256),
-                transforms.CenterCrop(224),
-                transforms.ToTensor(),
-                transforms.Normalize(norm_mean, norm_std)])
-
+   
     testloader = DataLoader(ImageFolder(test_dir, transform_test),
                             batch_size=batchsize, 
                             shuffle=False, 
@@ -175,8 +165,8 @@ if __name__ == '__main__' :
     parser = argparse.ArgumentParser(description='PyTorch Classification on Test Set')
 
     # data
-    parser.add_argument('--test-dir', type=str, default='../data/Clothing1M', help='test directory')    
-    parser.add_argument('--dataset', type = str, choices=['CIFAR10', 'CIFAR100', 'Clothing1M'], default='Clothing1M', help='which dataset?')
+    parser.add_argument('--test-dir', type=str, default='../data/CIFAR10', help='test directory')    
+    parser.add_argument('--dataset', type = str, choices=['CIFAR10', 'CIFAR100'], default='CIFAR10', help='which dataset?')
     parser.add_argument('--batchsize', type = int, default = 128, help='batch size')
     
     # model

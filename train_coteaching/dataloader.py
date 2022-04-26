@@ -95,22 +95,6 @@ def getDataloader(dataset, trainDir, valDir, batchSize, batchSizeRot=32):
             transforms.ToTensor(),
             transforms.Normalize(norm_mean, norm_std)])
 
-    elif dataset == 'Clothing1M':
-        norm_mean, norm_std = (0.485, 0.456, 0.406), (0.229, 0.224, 0.225)
-        nbCls = 14
-
-        transformTrain = transforms.Compose([
-                transforms.RandomResizedCrop(224),
-                transforms.RandomHorizontalFlip(),
-                transforms.ToTensor(),
-                transforms.Normalize(norm_mean, norm_std)])
-
-        # transformation of the test set
-        transformTest = transforms.Compose([
-                transforms.Resize(256),
-                transforms.CenterCrop(224),
-                transforms.ToTensor(),
-                transforms.Normalize(norm_mean, norm_std)])
 
     trainLoaderCls = TrainDataLoader(trainDir, transformTrain, batchSize, isRot=False) 
     trainLoaderRot = TrainDataLoader(trainDir, transformTrain, batchSizeRot, isRot=True) 
@@ -122,9 +106,9 @@ def getDataloader(dataset, trainDir, valDir, batchSize, batchSizeRot=32):
     
 if __name__ == '__main__': 
 
-    dataset = 'Clothing1M'
-    trainDir = '../data/Clothing1M/noisy_rand_subtrain/'
-    valDir = '../data/Clothing1M/clean_val/' 
+    dataset = 'CIFAR10'
+    trainDir = '../data/CIFAR10/noisy_rand_subtrain/'
+    valDir = '../data/CIFAR10/clean_val/' 
     batchSize = 128
     batchSizeRot = 16
     

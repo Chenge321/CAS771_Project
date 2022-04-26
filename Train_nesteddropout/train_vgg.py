@@ -21,7 +21,6 @@ from torchvision.datasets import ImageFolder
 import torch.nn.functional as F
 
 
-### ------------------------------------ Dataloader -------------------------------------- ###
 def get_dataloader(dataset, train_dir, val_dir, batchsize):    
     
     if dataset == 'Animal10N':
@@ -52,20 +51,14 @@ def get_dataloader(dataset, train_dir, val_dir, batchsize):
                                 
     return  trainloader, valloader, nb_cls                    
 
-### --------------------------------------------------------------------------------------------
 
-
-### ------------------------------------ Distribution -------------------------------------- ###  
 def GaussianDist(mu, std, N):
 
     dist = np.array([np.exp(-((i - mu) / std)**2) for i in range(1, N + 1)])
 
     return dist / np.sum(dist)
 
-### ---------------------------------------------------------------------------------------------
-   
 
-### ------------------------ Test with Nested (iterate all possible K) --------------------- ###
 def TestNested(epoch, best_acc, best_k, net_feat, net_cls, valloader, out_dir, mask_feat_dim):
     
     net_feat.eval() 
@@ -116,10 +109,7 @@ def TestNested(epoch, best_acc, best_k, net_feat, net_cls, valloader, out_dir, m
         
     return best_acc, acc, best_k
 
-### --------------------------------------------------------------------------------------------
 
-
-### --------------- Test standard (used for model w/o nested, baseline, dropout) ------------###  
 def TestStandard(epoch, best_acc, best_k, net_feat, net_cls, valloader, out_dir, mask_feat_dim):
     
     net_feat.eval() 
@@ -162,10 +152,6 @@ def TestStandard(epoch, best_acc, best_k, net_feat, net_cls, valloader, out_dir,
         
     return best_acc, acc, len(mask_feat_dim)
 
-### --------------------------------------------------------------------------------------------
-
-
-### -------------------------------------- Training  --------------------------------------- ###
 def Train(epoch, optimizer, net_feat, net_cls, trainloader, criterion, dist1, dist2, mask_feat_dim, alter_train, freeze_bn): 
     
     msg = '\nEpoch: {:d}'.format(epoch)
@@ -231,10 +217,6 @@ def Train(epoch, optimizer, net_feat, net_cls, trainloader, criterion, dist1, di
               
     return losses.avg, top1.avg, top5.avg
 
-### -------------------------------------------------------------------------------------------- 
-
-
-### ------------------------------------ Lr Warm Up  --------------------------------------- ###  
 def LrWarmUp(warmUpIter, lr, optimizer, net_feat, net_cls, trainloader, criterion, dist1, dist2, mask_feat_dim, alter_train, freeze_bn): 
     
     nbIter = 0 
@@ -306,14 +288,6 @@ def LrWarmUp(warmUpIter, lr, optimizer, net_feat, net_cls, trainloader, criterio
             msg = 'Loss: {:.3f} | Lr : {:.5f} | Top1: {:.3f}% | Top5: {:.3f}%'.format(losses.avg, lrUpdate, top1.avg, top5.avg)
             utils.progress_bar(batchIdx, len(trainloader), msg)
 
-### --------------------------------------------------------------------------------------------          
-
-
-#-----------------------------------------------------------------------------------------------                       
-#-----------------------------------------------------------------------------------------------            
-########################################-- MAIN FUNCTION --#####################################
-#-----------------------------------------------------------------------------------------------                         
-#----------------------------------------------------------------------------------------------- 
 
 def main(gpu, arch, vgg_dropout, out_dir, dataset, train_dir, val_dir, warmUpIter, lr, nbEpoch, batchsize, momentum=0.9, weightDecay = 5e-4, lrSchedule = [200, 300], lr_gamma=0.1, mu=0, nested1=1.0, nested2=1.0, alter_train=False, resumePth=None, freeze_bn=False, pretrained=False): 
 
