@@ -8,6 +8,8 @@ In this project, we combine the nested dropout method and co-teaching method to 
 - [References](#references)
 
 ## How to use it?
+Note: We use a Windows machine to implement this method, the OS command is different in Macos or other system, so it may causes error.
+
 Firstly, you can process dataset and generate different noisy type and level by following command:
 
 1. Pre-process CIFAR-10 and CIFAR-100 dataset
