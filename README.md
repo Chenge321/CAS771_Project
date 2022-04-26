@@ -82,11 +82,11 @@ Firstly, you can process dataset and generate different noisy type and level by 
 
 
 ## References
-1. https://en.wikipedia.org/wiki/Arithmetic_coding#:~:text=Arithmetic%20coding%20(AC)%20is%20a,as%20in%20the%20ASCII%20code.&text=It%20represents%20the%20current%20information,range%2C%20defined%20by%20two%20numbers.
+1. Han, B., Yao, Q., Yu, X., Niu, G., Xu, M., Hu, W., ... & Sugiyama, M. (2018). Co-teaching: Robust training of deep neural networks with extremely noisy labels. Advances in neural information processing systems, 31.
 
+2. Rippel, O., Gelbart, M., & Adams, R. (2014, June). Learning ordered representations with nested dropout. In International Conference on Machine Learning (pp. 1746-1754). PMLR.
 
-2. https://www.geeksforgeeks.org/lzw-lempel-ziv-welch-compression-technique/
-3. https://en.wikipedia.org/wiki/LZ77_and_LZ78
-4. https://blog.csdn.net/luoshixian099/article/details/50331883
-5. The slides from the CAS722 course (by instructor Neerja Mhaskar), the lecture notes from CSE701 (by Dr. Barak Shoshany).
+3. Chen, Y., Shen, X., Hu, S. X., & Suykens, J. A. (2021). Boosting co-teaching with compression regularization for label noise. In Proceedings of the IEEE/CVF Conference on Computer Vision 
+
+4. The slides from the CAS771 course (by instructor Wenbo He).
 
