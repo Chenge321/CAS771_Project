@@ -35,9 +35,18 @@ Firstly, you can process dataset and generate different noisy type and level by 
 
 3. After processing dataset, we can train our nested dropout network on a 20% symmetric noisy CIFAR-10 dataset by (It will save the model in the savepoints folder after finishing training):
    
-   cd Train_nesteddropout
+   1. For training CIFAR-10/CIFAR-100
+   
+      cd Train_nesteddropout
 
-    python train_resnet.py --train-dir ../data/CIFAR10/train_sn_0.2/ --val-dir ../data/CIFAR10/val/ --dataset CIFAR10 --arch resnet18 --out-dir ./savepoints/cifar10sn0.2_model1 --nested 10 --gpu 0
+      python train_resnet.py --train-dir ../data/CIFAR10/train_sn_0.2/ --val-dir ../data/CIFAR10/val/ --dataset CIFAR10 --arch resnet18 --out-dir ./savepoints/cifar10sn0.2_model1 --nested 10 --gpu 0
+    2. For training ANIMAL-10N
+        
+        cd Train_nesteddropout
+
+        python train_vgg.py --train-dir ../data/Animal10N/train/ --val-dir ../data/Animal10N/test/ --dataset Animal10N --arch vgg19-bn --out-dir ./savepoints/Animal10N_model1 --gpu 0
+
+
 
 4. After we have two trained model, we can use those two models as co-teaching step, to train a co-teaching model on a 20% symmetric CIFAR-10 dataset (It will save the model in co_teaching_model after training):
 
